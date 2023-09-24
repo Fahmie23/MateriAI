@@ -4,7 +4,6 @@ import pandas as pd
 from collections import OrderedDict
 import re
 import os
-from dotenv import load_dotenv
 
 # Get the OpenAI API key from environment variable
 openai.api_key = st.secrets["OPENAI_API_KEY"]
