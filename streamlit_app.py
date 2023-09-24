@@ -6,11 +6,8 @@ import re
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-
 # Get the OpenAI API key from environment variable
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 def get_image_from_dalle(description):
     """Generate an image based on the description using DALL·E."""
