@@ -109,8 +109,7 @@ def summarize_input(input_text):
     )
 
         cover_prompt = response.choices[0].text
-        return(cover_prompt)
-    
+        return cover_prompt
     except Exception as e:
         st.error(f"❌ An error occurred during summarization: {e}")
         return None
@@ -133,16 +132,16 @@ def main():
             color: #1f77b4;
         }
         .custom-title {
-            font-size: 4em;        /* Increase the font size */
-            text-align: center;      /* Center the title */
-            font-weight: bold;       /* Make it bold */
-            color: #1f77b4;          /* Set the title color */
+            font-size: 4em;
+            text-align: center;
+            font-weight: bold;
+            color: #1f77b4;
         }
         .stButton>button {
             width: 100%;
         }
     </style>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
     st.markdown('<div class="custom-title">MateriAI 🛠️</div>', unsafe_allow_html=True)
     st.markdown('Your one-stop solution for **Material Suggestions**!')
@@ -197,13 +196,6 @@ def main():
                         st.write("---")
 
                     st.success("🎉 Material suggestions fetched successfully!")
-
-                    if st.button('💾 Save Output'):
-                        filename = 'material_suggestions.csv'
-                        df.drop(columns=['Image'], inplace=True)  # Remove Image URL before saving to CSV
-                        df.to_csv(filename, index=False)
-                        st.markdown(f'🔗 [Download Material Suggestions]({filename})')
-                        st.success("Output saved successfully!")
 
 if __name__ == '__main__':
     main()
